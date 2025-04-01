@@ -27,6 +27,7 @@ public class SpringSecurity {
                 .csrf(csrf -> csrf.disable())  // Disable CSRF for APIs
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/journal/**","/user/**").authenticated()  // Secure journal endpoints
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().permitAll()  // Allow all other endpoints
                 )
                 .httpBasic(Customizer.withDefaults());  // Use updated httpBasic() syntax

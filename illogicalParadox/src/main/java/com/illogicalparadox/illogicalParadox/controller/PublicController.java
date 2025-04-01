@@ -14,7 +14,7 @@ public class PublicController {
     public String healthCheck(){return "i am Alive";}
     @PostMapping("/create")
     public void createUser (@RequestBody User user){
-        userService.saveEntry(user);
+        userService.saveNewUser(user);
     }
 }
 
