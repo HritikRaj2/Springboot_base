@@ -1,11 +1,13 @@
 package com.illogicalparadox.illogicalParadox.controller;
 import java.time.LocalDateTime;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import com.illogicalparadox.illogicalParadox.entity.JournalEntry;
 import com.illogicalparadox.illogicalParadox.entity.User;
 import com.illogicalparadox.illogicalParadox.service.JournalEntryService;
 import com.illogicalparadox.illogicalParadox.service.UserService;
 import org.bson.types.ObjectId;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,7 @@ public class JournalEntryControllerV2 {
 
     @Autowired
     private UserService userService;
+
 
     @GetMapping
     public ResponseEntity<?> getAllJournalEntriesOfUser(){

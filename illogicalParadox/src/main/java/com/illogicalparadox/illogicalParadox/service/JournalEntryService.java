@@ -4,12 +4,14 @@ import com.illogicalparadox.illogicalParadox.entity.JournalEntry;
 import com.illogicalparadox.illogicalParadox.entity.User;
 import com.illogicalparadox.illogicalParadox.repository.JournalEntryRepository;
 import org.bson.types.ObjectId;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Component
 public class JournalEntryService {
@@ -18,6 +20,8 @@ public class JournalEntryService {
 
     @Autowired
     private UserService userService;
+
+
     @Transactional
     public void saveEntry(JournalEntry journalEntry, String userName){
         User user=userService.findByUsername(userName);
@@ -47,6 +51,7 @@ public class JournalEntryService {
             }
         }catch(Exception e){
             System.out.println(e);
+            //logger.info("HHHAHHAHAH");
             throw new RuntimeException("An Error occured while deleting the entries");
         }
     }
