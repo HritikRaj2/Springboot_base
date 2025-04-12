@@ -47,7 +47,7 @@ public class UserController {
         WeatherResponse weatherResponse=weatherService.getWeather("Mumbai");
         String greeting="";
         if(weatherResponse!=null){
-            greeting=",Weather feel like "+ weatherResponse.getCurrent().getFeelslike()+"" + "\nTemperature is "+weatherResponse.getCurrent().getTemperature();
+            greeting=",Weather "+ weatherResponse.getCurrent().getFeelslike()+"" + "\nTemperature is "+weatherResponse.getCurrent().getTemperature();
         }
 
 
