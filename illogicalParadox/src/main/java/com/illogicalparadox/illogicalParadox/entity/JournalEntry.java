@@ -1,9 +1,9 @@
 package com.illogicalparadox.illogicalParadox.entity;
+import com.illogicalparadox.illogicalParadox.enums.Sentiment;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 @Document(collection ="journal_entries")
 @Data
@@ -15,4 +15,5 @@ public class JournalEntry {
     private String name;
     private LocalDateTime date;
     private String content;
+    private Sentiment sentiment;
 }
